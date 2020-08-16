@@ -89,6 +89,13 @@ class MusicLibraryController
       genre_songs.each {|song|puts "#{genre_songs.index(song) + 1}. #{song.artist.name} - #{song.name}"} unless genre_songs == nil
   end
   
+  def song_array
+    sorted_library = self.library.sort_by {|song|song.name}
+    sorted_library.collect do |song|
+      "#{sorted_library.index(song) + 1}. #{song.artist.name} - #{song.name} - #{song.genre.name}"
+    end
+  end
+  
   def play_song
     puts "Which song number would you like to play?"
     song_names = self.song_array
