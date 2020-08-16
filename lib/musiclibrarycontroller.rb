@@ -108,4 +108,9 @@ class MusicLibraryController
     end
   end
   
+  def name_extractor(filename)
+    file_bits = filename.gsub(/(\.mp3)/,'')
+    file_bits = file_bits.split(" - ")
+  end
+  
 end
